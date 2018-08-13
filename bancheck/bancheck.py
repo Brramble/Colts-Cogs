@@ -78,13 +78,14 @@ class BanList():
             final = await resp.text()
             resp.close()
             if '"banned": "0"' in final.lower():
-                banned = False
+                banned = False; print(Banned)
             elif '"banned": "1"' in final.lower():
-                banned = True
+                banned = True; print(Banned)
                 data= json.loads(final)
-                case_id =  data["case_id"] 
-                reason = data["reason"]
-                proof = data["proof"]
+                case_id =  data["case_id"]; print(case_id)
+                reason = data["reason"]; print(reason)
+                proof = data["proof"]; print(proof)
+
         
         
     async def _banjoin(self, member):
