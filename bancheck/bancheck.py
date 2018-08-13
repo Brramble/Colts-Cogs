@@ -4,11 +4,6 @@ from redbot.core import checks
 from redbot.core import Config
 import aiohttp
 
-payload = { "user_id": userid }
-headers = {'Authorization': 'JJFoWzWeBJVl802f5FR2Z9L9qMSCiPE6tcmvJIs_fjg'}
-url = "https://bans.discord.id/api/check.php"
-isbanned = False
-
 
 class BanList():
 
@@ -74,6 +69,10 @@ class BanList():
         is_banned = await dBans.lookup(user_id=checkID)
         name = user
         avatar = user.avatar_url_as(format='png')
+        payload = { "user_id": userid }
+        headers = {'Authorization': 'JJFoWzWeBJVl802f5FR2Z9L9qMSCiPE6tcmvJIs_fjg'}
+        url = "https://bans.discord.id/api/check.php"
+        isbanned = False
         async with aiohttp.ClientSession() as session:
             resp = await session.post(url, data=payload)
             final = await resp.text()
