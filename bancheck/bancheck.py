@@ -66,7 +66,7 @@ class BanList():
         checkID = user.id
         name = user
         avatar = user
-        is_banned = await dBans.lookup(user_id=checkID)
+        #is_banned = await dBans.lookup(user_id=checkID)
         name = user
         avatar = user.avatar_url_as(format='png')
         payload = { "user_id": userid }
