@@ -69,7 +69,7 @@ class BanList():
         #is_banned = await dBans.lookup(user_id=checkID)
         name = user
         avatar = user.avatar_url_as(format='png')
-        payload = { "user_id": userid }
+        payload = { "user_id": user.id }
         headers = {'Authorization': 'JJFoWzWeBJVl802f5FR2Z9L9qMSCiPE6tcmvJIs_fjg'}
         url = "https://bans.discord.id/api/check.php"
         isbanned = False
